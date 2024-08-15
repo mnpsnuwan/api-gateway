@@ -29,7 +29,7 @@ public class Routes
     public RouterFunction<ServerResponse> productServiceRoute()
     {
         return route( "product_service" )
-                       .route( RequestPredicates.path( "/api/product" ), HandlerFunctions.http( "http://localhost:9090" ) )
+                       .route( RequestPredicates.path( "/api/product" ), HandlerFunctions.http( "http://localhost:8090" ) )
                        .filter( CircuitBreakerFilterFunctions.circuitBreaker( "productServiceCircuitBreaker",
                                URI.create( "forward:/fallbackRoute" ) ) )
                        .build();
@@ -39,7 +39,7 @@ public class Routes
     public RouterFunction<ServerResponse> productServiceSwaggerRoute()
     {
         return route( "product_service_swagger" )
-                       .route( RequestPredicates.path( "/aggregate/product-service/v3/api-docs" ), HandlerFunctions.http( "http://localhost:9090" ) )
+                       .route( RequestPredicates.path( "/aggregate/product-service/v3/api-docs" ), HandlerFunctions.http( "http://localhost:8090" ) )
                        .filter( CircuitBreakerFilterFunctions.circuitBreaker( "productServiceSwaggerCircuitBreaker",
                                URI.create( "forward:/fallbackRoute" ) ) )
                        .filter( setPath( "/api-docs" ) )
@@ -51,7 +51,7 @@ public class Routes
     public RouterFunction<ServerResponse> orderServiceRoute()
     {
         return route( "order_service" )
-                       .route( RequestPredicates.path( "/api/order" ), HandlerFunctions.http( "http://localhost:9091" ) )
+                       .route( RequestPredicates.path( "/api/order" ), HandlerFunctions.http( "http://localhost:8091" ) )
                        .filter( CircuitBreakerFilterFunctions.circuitBreaker( "orderServiceCircuitBreaker",
                                URI.create( "forward:/fallbackRoute" ) ) )
                        .build();
@@ -61,7 +61,7 @@ public class Routes
     public RouterFunction<ServerResponse> orderServiceSwaggerRoute()
     {
         return route( "order_service_swagger" )
-                       .route( RequestPredicates.path( "/aggregate/order-service/v3/api-docs" ), HandlerFunctions.http( "http://localhost:9091" ) )
+                       .route( RequestPredicates.path( "/aggregate/order-service/v3/api-docs" ), HandlerFunctions.http( "http://localhost:8091" ) )
                        .filter( CircuitBreakerFilterFunctions.circuitBreaker( "orderServiceSwaggerCircuitBreaker",
                                URI.create( "forward:/fallbackRoute" ) ) )
                        .filter( setPath( "/api-docs" ) )
@@ -72,7 +72,7 @@ public class Routes
     public RouterFunction<ServerResponse> inventoryServiceRoute()
     {
         return route( "inventory_service" )
-                       .route( RequestPredicates.path( "/api/inventory" ), HandlerFunctions.http( "http://localhost:9092" ) )
+                       .route( RequestPredicates.path( "/api/inventory" ), HandlerFunctions.http( "http://localhost:8092" ) )
                        .filter( CircuitBreakerFilterFunctions.circuitBreaker( "inventoryServiceCircuitBreaker",
                                URI.create( "forward:/fallbackRoute" ) ) )
                        .build();
@@ -82,7 +82,7 @@ public class Routes
     public RouterFunction<ServerResponse> inventoryServiceSwaggerRoute()
     {
         return route( "inventory_service_swagger" )
-                       .route( RequestPredicates.path( "/aggregate/inventory-service/v3/api-docs" ), HandlerFunctions.http( "http://localhost:9092" ) )
+                       .route( RequestPredicates.path( "/aggregate/inventory-service/v3/api-docs" ), HandlerFunctions.http( "http://localhost:8092" ) )
                        .filter( CircuitBreakerFilterFunctions.circuitBreaker( "inventoryServiceSwaggerCircuitBreaker",
                                URI.create( "forward:/fallbackRoute" ) ) )
                        .filter( setPath( "/api-docs" ) )
